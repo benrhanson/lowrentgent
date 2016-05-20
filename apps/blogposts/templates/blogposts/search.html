@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>High Life, Low Cost</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blogposts/styles.css' %}">	
+	<!-- Bootstrap -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
+
+	<!-- jQuery for Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
+
+	<!-- Javascript for Bootstrap -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+</head>
+
+<body>
+<div class = "background">
+	<div class = "container">
+		<H1>A LOGO OR NAME GOES HERE</H1>
+		<!-- nav bar -->
+			<div class = "row">
+				<nav class = "navbar navbar-default">
+					<div class = "container-fluid">
+						<div class = "navbar-header">
+							<ul class = "nav navbar-nav" class = "col-md-9">
+								<li><a href="/home">Home</a></li>
+								<li><a href="/home/page_add">Add Articles (temporary)</a></li>
+								<li><a href="/home/search">Search Articles</a></li>
+								<li> 
+							</ul>      
+								<form class="navbar-form navbar-left" role="search">
+								    <div class="form-group">
+								        <input type="text" class="form-control" placeholder="Search">
+								    </div>
+								    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+								</form>
+						</div>
+					</div>
+				</nav>
+			<!-- nav bar ends -->
+			</div>	
+
+	<!-- Form for searching the database -->
+<h1>Search for Articles</h1>
+<br>
+<form action = "/home/query/" method = "post">
+	{% csrf_token %}
+	{{ form.as_table }}
+	<input type = "submit" value = "Find">
+</form>
+
+	<!-- class container ends -->
+	</div>
+<!-- class background class ends -->
+</div>
+
+
+</body>
+</html>

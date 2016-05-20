@@ -1,0 +1,106 @@
+<html>
+<head>
+	<title>High Life, Low Cost</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blogposts/styles.css' %}">	
+	<!-- Bootstrap -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
+
+	<!-- jQuery for Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
+
+	<!-- Javascript for Bootstrap -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+</head>
+
+<body>
+<div class = "background">
+	<div class = "container">
+		<H1>A LOGO OR NAME CAN GO HERE</H1>
+		<!-- nav bar -->
+			<div class = "row">
+				<nav class = "navbar navbar-default">
+					<div class = "container-fluid">
+						<div class = "navbar-header">
+							<ul class = "nav navbar-nav" class = "col-md-9">
+								<li><a href="/home">Home</a></li>
+								<li><a href="/home/page_add">Add Articles (temporary)</a></li>
+								<li><a href="/home/search">Search Articles</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			<!-- nav bar ends -->
+			</div>	
+		<!-- top stories on the right, new stories on the left -->
+		<div class = "content">
+			<!-- jumbotron begins -->
+
+			{% if request.session.carousel %}
+				<!-- {{ request.session.carousel.0.blog_author }} -->
+			<div class = "jumbotron jumbostyles col-md-8">
+				<div id = "myCarousel" class = "carousel slide" data-ride = "carousel">
+			<!-- creates dots to let you skip through the carousel -->
+					<ol class = "carousel-indicators">
+						<li data-target = "#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target = "#myCarousel" data-slide-to="1"></li>
+						<li data-target = "#myCarousel" data-slide-to="2"></li>
+					</ol>
+
+			<!-- carousel -->
+			<div class = "carousel-inner headliner" role = "listbox">
+				<!-- main item in carousel -->
+				<div class = "item active">
+					<img style = "height: 60%" class = 'carousel_pic image-responsive' src="{{request.session.carousel.0.blog_image}}">
+					<div class = "carousel-caption">
+						<h3><a href="/home/article/{{request.session.carousel.0.id}}">{{request.session.carousel.0.blog_headline}}</a></h3>
+					</div>
+				</div>
+				<!-- first item in carousel -->
+				<div class = "item">
+					<img style = "height: 60%;" class = 'carousel_pic image-responsive' src="{{request.session.carousel.1.blog_image}}">
+					<div class = "carousel-caption">
+						<h3><a href="/home/article/{{request.session.carousel.1.id}}">{{request.session.carousel.1.blog_headline}}</a></h3>
+					</div>
+				</div>
+				<!-- second item in carousel -->
+				<div class = "item">
+					<img style = "height: 60%" class = 'carousel_pic image-responsive' src="{{request.session.carousel.2.blog_image}}">
+					<div class = "carousel-caption">
+						<h3><a href="/home/article/{{request.session.carousel.2.id}}">{{request.session.carousel.2.blog_headline}}</a></h3>
+					</div>
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class = "left carousel-control" href="#myCarousel" role = "button" data-slide = "prev">
+	      		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	      		<span class="sr-only">Previous</span>
+			</a>
+
+			<a class = "right carousel-control" href="#myCarousel" role = "button" data-slide = "next">
+	      		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	      		<span class="sr-only">Previous</span>
+			</a>
+		</div>
+			<!-- class jumbotron ends -->
+			</div>
+			<!-- blank space -->
+			<div class = "col-md-1"></div>
+			<!-- Most Popular Articles -->
+			<div class = "jumbotron jumbostyles  col-md-3">
+				Most Popular Articles
+				(this will be a quick item that will show links to 3 to 5 of articles arranged by popularity)
+			</div>
+			{% endif %}
+		<!-- jumbotron ends -->
+		</div>
+	<!-- class container ends -->
+	</div>
+<!-- class background class ends -->
+</div>
+
+
+</body>
+</html>
