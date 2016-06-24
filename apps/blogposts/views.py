@@ -42,6 +42,8 @@ def searchpage(request):
 	results = request.session['results']
 	return render(request, 'blogposts/search.html', {'form':form_class})
 
+# handles search queries by author and by date
+
 def query(request):
 	if request.method == "POST":
 		# searches when query has a date but no author
@@ -64,6 +66,13 @@ def query(request):
 		print "oopsie"
 	return redirect(searchpage)
 
+# loads a page with links to all articles
+
+def all(request):
+	return render(request, 'blogposts/all.html')
+
+# loads a particular article
+
 def article(request, article_id):
 	article = Articles.objects.filter(id = article_id)
 	article_package = []
@@ -73,3 +82,8 @@ def article(request, article_id):
 		article_package.append(({'blog_author': i.blog_author, 'blog_article': i.blog_article, 'id': i.id, 'blog_date': date, 'blog_id': i.id, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
 	request.session['article'] = article_package
 	return render(request, 'blogposts/article.html')
+
+# loads a page about the authors
+
+def about(request):
+	return render(request, 'blogposts/about.html')
