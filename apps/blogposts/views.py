@@ -15,11 +15,12 @@ def index(request):
 		carousel_package.append(({'blog_author': i.blog_author, 'id': i.id, 'blog_date': date, 'blog_id': i.id, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
 	request.session['carousel'] = carousel_package
 	return render(request, 'blogposts/index.html')
-
+# page for adding articles
 def page_add(request):
 	form_class = AddForm
 	return render(request, 'blogposts/add.html', {'form':form_class})
 
+# adds the article to the database or returns an error
 def add(request):
 	if request.method == "POST":
 		article = AddForm(request.POST)

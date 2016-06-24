@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>High Life, Low Cost</title>
+	<title>Low Rent Gent</title>
 	{% load staticfiles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'blogposts/styles.css' %}">	
 	<!-- Bootstrap -->
@@ -33,15 +33,27 @@
 			<!-- nav bar ends -->
 			</div>	
 
-	<!-- Form for searching the database -->
-<div class = "lefty col-md-5"><img style = "height: 50%" src="{{request.session.article.0.blog_image}}"></div>
+<!-- Displays the article. -->
+<div class = "lefty col-md-5">
+	<img class = "img-responsive" style = "border: 1px solid black; height: 50%" style = "width: 50%" src="{{request.session.article.0.blog_image}}">
+	<!-- ads -->
+	<div class = "ads">
+		<h4>Support us by clicking the link and shopping at Amazon!</h4>
+		<h5>Come on, you know you shop at Amazon anyway!</h5>
+		<a href="http://amzn.to/28QuaRO">Please, my nonexistant children are starving!</a>
+		<br>
+		<iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=9&l=ez&f=ifr&linkID=b12c749711b23da1cb5db983f847fe41&t=fivpoipod-20&tracking_id=fivpoipod-20" width="180" height="150" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+	</div>
+</div>
 <div class = "righty col-md-7">
 	<div>
 		<h2>{{request.session.article.0.blog_headline}}</h2>
-		<p>By: {{request.session.article.0.blog_author}} {{request.session.article.0.blog_date}}</p>
+		<p>By: {{request.session.article.0.blog_author}}</p>
+		<p>Published: {{request.session.article.0.blog_date}}</p>
 	</div>
+	<p>{{request.session.article.0.blog_article|safe}}</p>
 </div>
-<p>{{request.session.article.0.blog_article|safe}}</p>
+
 	<!-- class container ends -->
 	</div>
 <!-- class background class ends -->
