@@ -4,41 +4,29 @@ import datetime
 from django.template import RequestContext
 from .forms import AddForm, Query
 from .models import Articles
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 def index(request):
+	# pops session results for searches so old searches aren't in the session the next time someone goes back to the search page
+	request.session.pop('results')
 	carousel_results = Articles.objects.order_by('-blog_date')[0:3].all()
 	carousel_package = []
 	for i in carousel_results: 
 		if isinstance(i.blog_date, datetime.date):
 			date = i.blog_date.strftime('%D')
-		carousel_package.append(({'blog_author': i.blog_author, 'id': i.id, 'blog_date': date, 'blog_id': i.id, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
+		carousel_package.append(({'blog_author': i.blog_author, 'id': i.id, 'blog_date': date, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
 	request.session['carousel'] = carousel_package
 	return render(request, 'blogposts/index.html')
-# page for adding articles
-def page_add(request):
-	form_class = AddForm
-	return render(request, 'blogposts/add.html', {'form':form_class})
 
-# adds the article to the database or returns an error
-def add(request):
-	if request.method == "POST":
-		article = AddForm(request.POST)
-		if article.is_valid():
-			add_article = article.save()
-			print "success!"
-		else: 
-			print "near miss"
-	else:
-		print "complete miss"
-	return redirect(page_add)
+# Page for searching database
 
 def searchpage(request):
 	form_class = Query
 	try:
 		request.session['results']
 	except:
-		request.session['results'] = "Your results will show up here!"
+		request.session['results'] = ["Your results will show up here!"]
 	results = request.session['results']
 	return render(request, 'blogposts/search.html', {'form':form_class})
 
@@ -60,7 +48,7 @@ def query(request):
 			if isinstance(i.blog_date, datetime.date):
 				date = i.blog_date.strftime('%D')
 				print date
-			result_package.append(['blog_author', i.blog_author, 'blog_date', date, 'blog_article', i.blog_article])
+			result_package.append(['blog_author', i.blog_author, 'blog_date', date, 'blog_article', i.blog_article, 'id', i.id])
 		request.session['results'] = result_package
 	else:
 		print "oopsie"
@@ -69,21 +57,34 @@ def query(request):
 # loads a page with links to all articles
 
 def all(request):
+	# pops session results for searches so old searches aren't in the session the next time someone goes back to the search page
+	request.session.pop('results')
+	all_articles = Articles.objects.order_by('-blog_date').all()
+	article_links = []
+	for i in all_articles: 
+		if isinstance(i.blog_date, datetime.date):
+			date = i.blog_date.strftime('%D')
+		article_links.append(({'blog_author': i.blog_author, 'id': i.id, 'blog_date': date, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
+	request.session['article_list'] = article_links
 	return render(request, 'blogposts/all.html')
 
 # loads a particular article
 
 def article(request, article_id):
+	# pops session results for searches so old searches aren't in the session the next time someone goes back to the search page
+	request.session.pop('results')
 	article = Articles.objects.filter(id = article_id)
 	article_package = []
 	for i in article: 
 		if isinstance(i.blog_date, datetime.date):
 			date = i.blog_date.strftime('%D')
-		article_package.append(({'blog_author': i.blog_author, 'blog_article': i.blog_article, 'id': i.id, 'blog_date': date, 'blog_id': i.id, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
+		article_package.append(({'blog_author': i.blog_author, 'blog_article': i.blog_article, 'id': i.id, 'blog_date': date,'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
 	request.session['article'] = article_package
 	return render(request, 'blogposts/article.html')
 
 # loads a page about the authors
 
 def about(request):
+	# pops session results for searches so old searches aren't in the session the next time someone goes back to the search page
+	request.session.pop('results')
 	return render(request, 'blogposts/about.html')
