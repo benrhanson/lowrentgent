@@ -1,1 +1,53 @@
-I AM THE ALL ARTICLES PAGE. I WILL REQUIRE PAGINATION AND SESSION FOR ALL ARTICLES.
+<html>
+<head>
+	<title>Low Rent Gent</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'blogposts/styles.css' %}">	
+	<!-- Bootstrap -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
+
+	<!-- jQuery for Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.js"></script>
+
+	<!-- Javascript for Bootstrap -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+</head>
+
+<body>
+<div class = "background">
+	<div class = "container">
+		<h1>LOW RENT GENT</h1>
+		<!-- nav bar -->
+			<div class = "row">
+				<nav class = "navbar navbar-default">
+					<div class = "container-fluid">
+						<div class = "navbar-header">
+							<ul class = "nav navbar-nav" class = "col-md-9">
+								<li><a href="/home">Home</a></li>
+								<li><a href="/home/all">Articles</a></li>
+								<li><a href="/home/search">Search Articles</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			<!-- nav bar ends -->
+			</div>	
+	</div>
+
+	{% for item in request.session.article_list %}
+	<div class = 'col-md-1'>
+	</div>
+
+	<div class = 'col-md-11'>
+		<h5><a href="/home/article/{{item.id}}">{{item.blog_headline}}</a></h5>
+		<h5>Author: {{item.blog_author}} Date: {{item.blog_date}}</h5>
+	</div>
+	{% endfor %}
+</div>
+</body>
+
+<hr>
+<footer>
+	<a href="/home/about">About</a>
+</footer>

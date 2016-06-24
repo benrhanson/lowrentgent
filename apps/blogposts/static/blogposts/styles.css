@@ -7,7 +7,6 @@
 }
 
 .background {
-	background-color: #F0FFFF;
 	min-height: 100%;
 	max-height: auto;
 	min-width: 100%;
@@ -19,7 +18,6 @@
 .content {
 	min-height: 50%;
 	max-height: auto;
-	background-color: #F0FFFF;
 	text-align: center;
 }
 
@@ -81,4 +79,8 @@ h2 {
 
 .ads a {
 	color: black;
+}
+
+footer {
+	padding-left: 5%;
 }
