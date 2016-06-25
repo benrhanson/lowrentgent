@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages', # messaging framework
     'django.contrib.staticfiles', # framework for managing static files, 
     'apps.blogposts', # manages the basic framework of the site
-    'twitter_bootstrap', #locally install bootstrap
 ]
 
 MIDDLEWARE_CLASSES = [
