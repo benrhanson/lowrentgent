@@ -10,13 +10,25 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def index(request):
 	# pops session results for searches so old searches aren't in the session the next time someone goes back to the search page
 	request.session.pop('results')
-	carousel_results = Articles.objects.order_by('-blog_date')[0:3].all()
+	# populates the carousel with the most recent three article links and images
+	carousel_articles = Articles.objects.order_by('-blog_date')[0:3].all()
+	# variable to store articles for carousel
 	carousel_package = []
-	for i in carousel_results: 
+	for i in carousel_articles: 
 		if isinstance(i.blog_date, datetime.date):
+		# makes the date into a nicer form- may not be necessary since dates are not displayed
 			date = i.blog_date.strftime('%D')
 		carousel_package.append(({'blog_author': i.blog_author, 'id': i.id, 'blog_date': date, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
 	request.session['carousel'] = carousel_package
+	# populates the right side with the next 20 articles
+	non_carousel_articles = Articles.objects.order_by('-blog_date')[2:8].all()
+	non_carousel_package  = []
+	for i in non_carousel_articles: 
+		# makes the date into a nicer form - may not be necessary since dates are not displayed
+		if isinstance(i.blog_date, datetime.date):
+			date = i.blog_date.strftime('%D')
+		non_carousel_package.append(({'blog_author': i.blog_author, 'id': i.id, 'blog_date': date, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))	 
+	request.session['non_carousel'] = non_carousel_package
 	return render(request, 'blogposts/index.html')
 
 # Page for searching database
