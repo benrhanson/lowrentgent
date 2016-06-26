@@ -21,7 +21,7 @@ def index(request):
 		carousel_package.append(({'blog_author': i.blog_author, 'id': i.id, 'blog_date': date, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
 	request.session['carousel'] = carousel_package
 	# populates the right side with the next 4 articles
-	non_carousel_articles = Articles.objects.order_by('-blog_date')[3:15].all()
+	non_carousel_articles = Articles.objects.order_by('-blog_date')[3:10].all()
 	non_carousel_package  = []
 	for i in non_carousel_articles: 
 		# makes the date into a nicer form - may not be necessary since dates are not displayed
