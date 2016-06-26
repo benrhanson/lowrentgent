@@ -13,6 +13,11 @@
 	max-width: auto;
 }
 
+/* logo */
+.logo {
+	text-align: center;
+}
+
 /*main page*/
 
 .content {
@@ -37,19 +42,9 @@
 
 }
 
-/*advertising block*/
-
-iframe {
+/*overflow articles*/
+.non_carousel {
 	text-align: center;
-}
-
-h3 {
-	color: black;
-	background-color: white;
-}
-
-h3 a {
-	color: black;
 }
 
 /*article page */
@@ -73,18 +68,36 @@ h2 {
 
 /*ads*/
 
-.ads {
-	text-align: center;
-}
-
-.ads a {
-	color: black;
-}
-
-.bottom_ad {
+.top_ad {
 	text-align: center;
 }
 
 footer {
 	padding-left: 5%;
+}
+
+/* bottom ads */
+
+iframe {
+	text-align: center;
+}
+
+.button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.read_more {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.bottom_ad, button {
+	text-align: center;
 }
