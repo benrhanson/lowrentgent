@@ -2,7 +2,7 @@ from django import forms
 from .models import Articles
 from django.forms import ModelForm
 
-AUTHOR_NAME_CHOICES = [('Jimmy Liu', 'Jimmy Liu'), ('Ben Hanson', 'Ben Hanson')]
+AUTHOR_NAME_CHOICES = [('', ''), ('Jimmy Liu', 'Jimmy Liu'), ('Ben Hanson', 'Ben Hanson')]
 
 class DateInput(forms.widgets.TextInput):
 	input_type='date'

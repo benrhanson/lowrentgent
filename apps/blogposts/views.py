@@ -38,7 +38,7 @@ def searchpage(request):
 	try:
 		request.session['results']
 	except:
-		request.session['results'] = ["Your results will show up here!"]
+		request.session['results'] = ["Your results will show up here."]
 	results = request.session['results']
 	return render(request, 'blogposts/search.html', {'form':form_class})
 
@@ -46,6 +46,7 @@ def searchpage(request):
 
 def query(request):
 	if request.method == "POST":
+		print "got hit"
 		# searches when query has a date but no author
 		if not request.POST['blog_author'] and request.POST['blog_date']:
 			results = Articles.objects.filter(blog_date = request.POST['blog_date'])
@@ -55,13 +56,12 @@ def query(request):
 		# date and author
 		else: 
 			results = Articles.objects.filter(blog_author = request.POST['blog_author'], blog_date = request.POST['blog_date'])
-		result_package = []
+		results_package = []
 		for i in results:
 			if isinstance(i.blog_date, datetime.date):
 				date = i.blog_date.strftime('%D')
-				print date
-			result_package.append(['blog_author', i.blog_author, 'blog_date', date, 'blog_article', i.blog_article, 'id', i.id])
-		request.session['results'] = result_package
+			results_package.append(({'blog_author': i.blog_author, 'id': i.id, 'blog_date': date, 'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
+		request.session['results'] = results_package
 	else:
 		print "oopsie"
 	return redirect(searchpage)

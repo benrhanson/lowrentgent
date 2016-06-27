@@ -11,14 +11,13 @@
 	max-height: auto;
 	min-width: 100%;
 	max-width: auto;
-	background: lightblue;
 }
 
 /* logo */
 .logo {
 	font-family: impact;
 	font-weight: bold;
-
+	text-decoration: none;
 }
 
 /*main page*/
@@ -55,7 +54,7 @@ h3, a {
 }
 
 /*article page */
-.lefty, img{
+.top-pic{
 	text-align: center;
 }
 
@@ -75,9 +74,12 @@ h2 {
 	text-align: center;
 }
 
+.ads {
+	text-align: center;
+}
+
 footer {
 	padding-left: 10%;
-	background-color: lightblue;
 }
 
 /* bottom ads */
@@ -103,4 +105,13 @@ iframe {
 
 .bottom_ad, button {
 	text-align: center;
+}
+
+/* article page */
+.top_pic img {
+	text-align: center;
+}
+
+.article {
+
 }
