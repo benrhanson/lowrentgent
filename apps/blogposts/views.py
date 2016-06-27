@@ -86,11 +86,14 @@ def article(request, article_id):
 	# pops session results for searches so old searches aren't in the session the next time someone goes back to the search page
 	request.session.pop('results')
 	article = Articles.objects.filter(id = article_id)
-	article_package = []
-	for i in article: 
-		if isinstance(i.blog_date, datetime.date):
-			date = i.blog_date.strftime('%D')
-		article_package.append(({'blog_author': i.blog_author, 'blog_article': i.blog_article, 'id': i.id, 'blog_date': date,'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
+	if not article:
+		article_package = "Oops, that article doesn't exist. Please check your URL or go to the Articles link to try again."
+	else:
+		article_package = []
+		for i in article: 
+			if isinstance(i.blog_date, datetime.date):
+				date = i.blog_date.strftime('%D')
+			article_package.append(({'blog_author': i.blog_author, 'blog_article': i.blog_article, 'id': i.id, 'blog_date': date,'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
 	request.session['article'] = article_package
 	return render(request, 'blogposts/article.html')
 

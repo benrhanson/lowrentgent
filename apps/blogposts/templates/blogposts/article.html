@@ -38,32 +38,47 @@
 				<iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=13&l=ez&f=ifr&linkID=46d24142611b00416ac40dcb21244cc6&t=fivpoipod-20&tracking_id=fivpoipod-20" width="468" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 			</div>			
 			<br>
-
+			
+{% if request.session.article == "Oops, that article doesn't exist. Please check your URL or go to the Articles link to try again." %}
 <!-- Displays the article. -->
 <div class = "top_pic col-md-5">
-		<img class = "img-responsive" style = "border: 1px solid black; height: 50%" style = "width: 50%" src="{{request.session.article.0.blog_image}}">
-
+		<img class = "img-responsive" style = "border: 1px solid black; height: 50%" style = "width: 50%" src="https://pinodegallo.files.wordpress.com/2010/08/technical-difficulties.jpg ">
 </div>
 
 <div class = "article col-md-7">
 	<div>
-		<h2>{{request.session.article.0.blog_headline}}</h2>
+		<h2>Oops!</h2>
 		<hr>
-		<p>By: {{request.session.article.0.blog_author}}</p>
-		<p>Published: {{request.session.article.0.blog_date}}</p>
+		<h3>{{request.session.article}}</h3>
 	</div>
-	<p>{{request.session.article.0.blog_article|safe}}</p>
 </div>
 	<!-- class container ends -->
 	</div>
+{% else %}
+<!-- Displays the article. -->
+	<div class = "top_pic col-md-5">
+			<img class = "img-responsive" style = "border: 1px solid black; height: 50%" style = "width: 50%" src="{{request.session.article.0.blog_image}}">
+
+	</div>
+
+	<div class = "article col-md-7">
+		<div>
+			<h2>{{request.session.article.0.blog_headline}}</h2>
+			<hr>
+			<p>By: {{request.session.article.0.blog_author}}</p>
+			<p>Published: {{request.session.article.0.blog_date}}</p>
+		</div>
+		<p>{{request.session.article.0.blog_article|safe}}</p>
+	</div>
+		<!-- class container ends -->
+		</div>
+{% endif %}
 <!-- class background class ends -->
 </div>
 <hr>
 <!-- ads -->
 	<div class = "ads">
-		<h4>Support us by clicking the link and shopping at Amazon!</h4>
-		<h5>Come on, you know you shop at Amazon anyway!</h5>
-		<a href="http://amzn.to/28QuaRO">Please, my nonexistant children are starving!</a>
+		<h4>Please support us by clicking the link and shopping at Amazon.</h4>
 		<br>
 		<iframe src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=9&l=ez&f=ifr&linkID=b12c749711b23da1cb5db983f847fe41&t=fivpoipod-20&tracking_id=fivpoipod-20" width="180" height="150" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
 	</div>
