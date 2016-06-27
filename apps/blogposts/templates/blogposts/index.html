@@ -56,21 +56,21 @@
 					<div class = "item active">
 						<a href="/article/{{request.session.carousel.0.id}}"><img style = "height: 60%" class = 'carousel_pic image-responsive' src="{{request.session.carousel.0.blog_image}}"></a>
 						<div class = "carousel-caption">
-							<h3><a href="/article/{{request.session.carousel.0.id}}">{{request.session.carousel.0.blog_headline}}</a></h3>
+							<a class = "button_top" href="/article/{{request.session.carousel.0.id}}">{{request.session.carousel.0.blog_headline}}</a>
 						</div>
 					</div>
 				<!-- first item in carousel -->
 					<div class = "item">
 						<a href="/article/{{request.session.carousel.1.id}}"><img style = "height: 60%" class = 'carousel_pic image-responsive' src="{{request.session.carousel.1.blog_image}}"></a>
 						<div class = "carousel-caption">
-							<h3><a href="/article/{{request.session.carousel.1.id}}">{{request.session.carousel.1.blog_headline}}</a></h3>
+							<a class = "button_top" href="/article/{{request.session.carousel.1.id}}">{{request.session.carousel.1.blog_headline}}</a>
 						</div>
 					</div>
 					<!-- second item in carousel -->
 					<div class = "item">
 						<a href="/article/{{request.session.carousel.2.id}}"><img style = "height: 60%" class = 'carousel_pic image-responsive' src="{{request.session.carousel.2.blog_image}}"></a>
 						<div class = "carousel-caption">
-							<h3><a href="/article/{{request.session.carousel.2.id}}">{{request.session.carousel.2.blog_headline}}</a></h3>
+							<a class = "button_top" href="/article/{{request.session.carousel.2.id}}">{{request.session.carousel.2.blog_headline}}</a>
 						</div>
 					</div>
 				</div>
@@ -103,7 +103,8 @@
 			{% endif %}		
 		</div>
 	<div class = "read_more">
-		<a class = "button" href="/all">Read More Articles</a>
+		<!-- <button><a href="/all">Read More Articles</a></button> -->
+		<a class = "button_bottom" href="/all">Read More Articles</a>
 	</div>
 
 	<!-- bottoms ads -->

@@ -33,19 +33,24 @@
 	text-align: center;
 }
 
-.carousel-inner > .item > img {
+.carousel-inner > .item > a > img {
     margin: 0 auto;
     text-align: center;
 }
 
-.carousel-inner > .item > a > img{
+.carousel-inner > .item > a > img {
     margin: 0 auto;
     text-align: center;
-
 }
 
-h3, a {
-	background-color: white;
+h3 a {
+	background-color: blue;
+	text-decoration: none;
+}
+
+h3 a:hover {
+	background-color: lightblue;
+	text-decoration: none;
 }
 
 /*overflow articles*/
@@ -88,14 +93,42 @@ iframe {
 	text-align: center;
 }
 
-.button {
+.button_top {
     background-color: blue;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 15px 10px 25px 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 125%;
+}
+
+.button_bottom {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.button_top:hover {
+	background-color: lightblue;
+	text-decoration: none;
+	color: white;
+}
+
+.button_bottom:hover {
+	background-color: lightblue;
+	text-decoration: none;
+	color: white;
+}
+
+h4 a:hover {
+	background-color: lightblue;
+	color: white;
+	text-decoration: none;
 }
 
 .read_more {
@@ -112,6 +145,12 @@ iframe {
 	text-align: center;
 }
 
-.article {
+footer a:hover {
+	background-color: lightblue;
+	color: white;
+}
 
+.nav > li:hover {
+	background-color: lightblue;
+	color: white;
 }

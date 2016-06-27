@@ -40,8 +40,8 @@
 	{% for item in request.session.article_list %}
 
 	<div>
-		<h5><a href="/article/{{item.id}}">{{item.blog_headline}}</a></h5>
-		<h5>By: {{item.blog_author}} Date: {{item.blog_date}}</h5>
+		<h4><a href="/article/{{item.id}}">{{item.blog_headline}}</a></h4>
+		<h4>By: {{item.blog_author}} Date: {{item.blog_date}}</h4>
 		<hr>
 	</div>
 	{% endfor %}
