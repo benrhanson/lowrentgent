@@ -43,20 +43,23 @@ def searchpage(request):
 	return render(request, 'blogposts/search.html', {'form':form_class})
 
 # handles search queries by author and by date
-
 def query(request):
 	if request.method == "POST":
-		print "got hit"
 		# searches when query has a date but no author
 		if not request.POST['blog_author'] and request.POST['blog_date']:
 			results = Articles.objects.filter(blog_date = request.POST['blog_date'])
 		# searches when query has an author but no date
 		elif not request.POST['blog_date'] and request.POST['blog_author']:
 			results = Articles.objects.filter(blog_author = request.POST['blog_author'])
+		# no date, no author
+		elif not request.POST['blog_date'] and not request.POST['blog_author']:
+			request.session['results'] = ""
+			return redirect(searchpage)
 		# date and author
 		else: 
 			results = Articles.objects.filter(blog_author = request.POST['blog_author'], blog_date = request.POST['blog_date'])
 		results_package = []
+		print results
 		for i in results:
 			if isinstance(i.blog_date, datetime.date):
 				date = i.blog_date.strftime('%D')
@@ -66,8 +69,15 @@ def query(request):
 		print "oopsie"
 	return redirect(searchpage)
 
-# loads a page with links to all articles
+# keyword query
+def keyquery(request):
+	if request.method == "POST":
+		a = "blerg"
+	else:
+		print "oopsie"
+		return redirect(searchpage)
 
+# loads a page with links to all articles
 def all(request):
 	# pops session results for searches so old searches aren't in the session the next time someone goes back to the search page
 	request.session.pop('results')

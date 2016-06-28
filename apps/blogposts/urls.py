@@ -10,6 +10,8 @@ urlpatterns = [
 	url(r'^about/', views.about, name = "about"),
 	# actually searches the database
 	url(r'^query/', views.query, name = "query"),
+	# searches the database by keyword
+	url(r'^keyquery/', views.keyquery, name = "keyquery"),
 	# page for searching through the database for articles
 	url(r'^search/', views.searchpage, name = "search"),
 	# page for displaying an article

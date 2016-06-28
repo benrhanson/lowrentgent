@@ -12,5 +12,6 @@ class Articles(models.Model):
 	blog_date = models.DateField()
 	blog_image = models.TextField()
 	blog_headline = models.TextField()
+	blog_keywords = models.TextField()
 	class Meta: 
 		db_table = "Articles"

@@ -56,6 +56,7 @@
 	<!-- Form for searching the database -->
 <h1>Search for Articles</h1>
 <br>
+<h3>Search by Author and Date</h3>
 <form action = "/query/" method = "post">
 	{% csrf_token %}
 	{{ form.as_table }}
@@ -63,13 +64,15 @@
 </form>
 
 <h3>Results:</h3>
-<hr>
+
 {% if request.session.results.0 == 'Your results will show up here.' %}
-	<h5>{{request.session.results.0}}</h5>
+	<h4>{{request.session.results.0}}</h4>
+	{% elif not request.session.results %}
+	<h4>That search returned no results. Please try again.</h4>
 	{% else %}
 	{% for item in request.session.results %}
-		<a href="/article/{{item.id}}"><h5>{{item.blog_headline}}</h5></a>
-		<h5>By: {{item.blog_author}} Date: {{item.blog_date}}</h5>
+		<a href="/article/{{item.id}}"><h4>{{item.blog_headline}}</h4></a>
+		<h4>By: {{item.blog_author}} Date: {{item.blog_date}}</h4>
 		<hr>
 	{% endfor %}
 {% endif %}

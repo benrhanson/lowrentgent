@@ -23,3 +23,7 @@ class AddForm(forms.ModelForm):
 class Query(forms.Form):
 	blog_author = forms.ChoiceField(choices = AUTHOR_NAME_CHOICES, label = "Author", required = False)
 	blog_date = forms.DateField(label = "Publish Date", required = False, widget=DateInput)
+
+# controls form for searching through database by keyword
+class KeyQuery(forms.Form):
+	blog_keywords = forms.CharField(required = True, label = "Keywords")
