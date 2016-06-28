@@ -75,6 +75,36 @@ h3 a:hover {
 	font-size: 150%;
 }
 
+.next-prev {
+	display: inline-block;
+	padding-top: 25px;
+	width: 100%;
+}
+
+.button_nav {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 15px 32px 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;	
+}
+
+.button_nav:hover {
+	background-color: lightblue;
+	text-decoration: none;
+	color: white;
+}
+
+.left_button {
+	float: left;
+}
+
+.right_button {
+	float: right;
+}
+
 /*nav bar*/
 
 .navstyles {

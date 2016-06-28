@@ -97,7 +97,7 @@ def article(request, article_id):
 			for i in article: 
 				if isinstance(i.blog_date, datetime.date):
 					date = i.blog_date.strftime('%D')
-				article_package.append(({'blog_author': i.blog_author, 'blog_article': i.blog_article, 'id': i.id, 'blog_date': date,'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
+				article_package.append(({'blog_author': i.blog_author, 'blog_article': i.blog_article, 'id': i.id, 'id_next': i.id+1, 'id_prev': i.id-1,  'blog_date': date,'blog_headline': i.blog_headline, 'blog_image': i.blog_image}))
 	request.session['article'] = article_package
 	return render(request, 'blogposts/article.html')
 

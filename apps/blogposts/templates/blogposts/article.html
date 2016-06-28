@@ -80,9 +80,13 @@
 		<div class = "article">
 			<h5 class = "blame">By: {{request.session.article.0.blog_author}} Published: {{request.session.article.0.blog_date}}</h5>
 			<div class = "article_text">
-				<span>{{request.session.article.0.blog_article|safe}}</span>
+				<span>{{request.session.article.0.blog_article|safe}}</span> <!-- safe puts it in as simple html for the page to parse -->
 			</div>
-		</div>
+		</div> <!-- article ends -->
+	</div> <!-- lefty ends -->
+	<div class = "next-prev"> <!-- links to the previous and next article -->
+		<a class = "button_nav left_button" href="/article/{{request.session.article.0.id_prev}}">Last Article</a>
+		<a class = "button_nav right_button" href="/article/{{request.session.article.0.id_next}}">Next Article</a>	
 	</div>
 	<hr>
 		</div> <!-- class container ends -->
