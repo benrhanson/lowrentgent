@@ -63,8 +63,16 @@ h3 a:hover {
 	text-align: center;
 }
 
-h2 {
+.title {
 	text-align: center;
+}
+
+.blame {
+	margin-top: 10px;
+}
+
+.article_text {
+	font-size: 150%;
 }
 
 /*nav bar*/
@@ -142,7 +150,10 @@ h4 a:hover {
 
 /* article page */
 .top_pic img {
-	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: green;
 }
 
 footer a:hover {

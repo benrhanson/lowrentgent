@@ -112,7 +112,7 @@
 				<hr>
 				{% for i in request.session.non_carousel %}
 				<h4><a href="/article/{{i.id}}">{{i.blog_headline}}</a></h4>
-				<p>{{i.blog_author}}</p>
+				<h4>{{i.blog_author}}</h4>
 				<hr>
 				{% endfor %}
 			{% endif %}		

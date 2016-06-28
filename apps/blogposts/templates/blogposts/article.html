@@ -55,41 +55,37 @@
 			
 {% if request.session.article == "Oops, that article doesn't exist. Please check your URL or go to the Articles link to try again." %}
 <!-- Displays the article. -->
-<div class = "top_pic col-md-5">
-		<img class = "img-responsive" style = "border: 1px solid black; height: 50%" style = "width: 50%" src="https://pinodegallo.files.wordpress.com/2010/08/technical-difficulties.jpg ">
-</div>
-
-<div class = "article col-md-7">
-	<div>
-		<h2>Oops!</h2>
-		<hr>
-		<h3>{{request.session.article}}</h3>
-	</div>
-</div>
-	<!-- class container ends -->
-	</div>
-{% else %}
-<!-- Displays the article. -->
 	<div class = "top_pic col-md-5">
-			<img class = "img-responsive" style = "border: 1px solid black; height: 50%" style = "width: 50%" src="{{request.session.article.0.blog_image}}">
-
+			<img class = "img-responsive" style = "border: 1px solid black; height: 50%" style = "width: 50%" src="https://pinodegallo.files.wordpress.com/2010/08/technical-difficulties.jpg ">
 	</div>
 
 	<div class = "article col-md-7">
 		<div>
-			<h2>{{request.session.article.0.blog_headline}}</h2>
+			<h2>Oops!</h2>
 			<hr>
-			<p>By: {{request.session.article.0.blog_author}}</p>
-			<p>Published: {{request.session.article.0.blog_date}}</p>
+			<h3>{{request.session.article}}</h3>
 		</div>
-		<p>{{request.session.article.0.blog_article|safe}}</p>
 	</div>
-		<!-- class container ends -->
+	</div> <!-- class container ends -->
+{% else %}
+<!-- Displays the article. -->
+	<div class = "lefty">
+		<h1 class = "title">{{request.session.article.0.blog_headline}}</h1>
+		<div class = "top_pic">
+			<img class = "img-responsive" style = "border: 1px solid black; height: 50%" style = "width: 50%" src="{{request.session.article.0.blog_image}}">
 		</div>
+
+		<div class = "article">
+			<h5 class = "blame">By: {{request.session.article.0.blog_author}} Published: {{request.session.article.0.blog_date}}</h5>
+			<div class = "article_text">
+				<span>{{request.session.article.0.blog_article|safe}}</span>
+			</div>
+		</div>
+	</div>
+		</div> <!-- class container ends -->
 {% endif %}
 <!-- class background class ends -->
 </div>
-<hr>
 	<!-- bottoms ads -->
 	<div class = "bottom_ad">
 		<script type="text/javascript">
