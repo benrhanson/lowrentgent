@@ -165,3 +165,11 @@ footer a:hover {
 	background-color: lightblue;
 	color: white;
 }
+
+/*disqus bar*/
+#disqus_thread {
+	width: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
