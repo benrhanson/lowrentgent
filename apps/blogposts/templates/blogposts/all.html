@@ -18,6 +18,7 @@
 	<div class = "background">
 		<div class = "container">
 			<h1 class = "logo">LOW RENT GENTS</h1>
+			<p>Under Construction</p>
 			<!-- nav bar -->
 			<div class = "row">
 				<nav class = "navbar navbar-default">
@@ -51,16 +52,35 @@
 				</div>
 			</div>			
 			<br>
-
+	<h2>All Articles</h2>
+	<hr>
 	{% for item in request.session.article_list %}
 
 	<div>
 		<h4><a href="/article/{{item.id}}">{{item.blog_headline}}</a></h4>
-		<h4>By: {{item.blog_author}} Date: {{item.blog_date}}</h4>
+		<h4>By: {{item.blog_author}} Published: {{item.blog_date}}</h4>
 		<hr>
 	</div>
 	{% endfor %}
 </div>
+
+	<!-- bottoms ads -->
+	<div class = "bottom_ad">
+		<script type="text/javascript">
+		amzn_assoc_placement = "adunit0";
+		amzn_assoc_search_bar = "true";
+		amzn_assoc_tracking_id = "fivpoipod-20";
+		amzn_assoc_ad_mode = "manual";
+		amzn_assoc_ad_type = "smart";
+		amzn_assoc_marketplace = "amazon";
+		amzn_assoc_region = "US";
+		amzn_assoc_title = "My Amazon Picks";
+		amzn_assoc_linkid = "7c8ad5d1937204bbc6411eec6fc7c0c0";
+		amzn_assoc_asins = "B01GW3GM7I,B018V3ISJ2,B018Y227MY,B00GDQ0RMG";
+		</script>
+		<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+	</div>
+
 </body>
 
 <hr>

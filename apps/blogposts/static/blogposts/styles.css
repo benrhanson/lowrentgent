@@ -97,7 +97,14 @@ footer {
 
 /* bottom ads */
 
-iframe {
+.bottom_ad {
+	width: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+.bottom_ad, button {
 	text-align: center;
 }
 
@@ -142,10 +149,6 @@ h4 a:hover {
 .read_more {
 	text-align: center;
 	margin-bottom: 50px;
-}
-
-.bottom_ad, button {
-	text-align: center;
 }
 
 /* article page */
