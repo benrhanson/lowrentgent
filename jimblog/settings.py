@@ -78,11 +78,11 @@ WSGI_APPLICATION = 'jimblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jimblog',                     
-        'USER': 'user',
-        'PASSWORD': 'Stinger01!',
-        'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-        'PORT': '',
+        'NAME': 'd9crn76b2rk1f8',                     
+        'USER': 'tljuzkfqmawdkz',
+        'PASSWORD': '7OxfO7WjY9u-A3ZULuDShY2Yq_',
+        'HOST': 'ec2-54-225-64-254.compute-1.amazonaws.com',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+        'PORT': '5432',
     }
 }
 
